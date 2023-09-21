@@ -24,11 +24,11 @@ while ($row = mysqli_fetch_array($resultado)){
 ?>
     <tr>
         <td><?php echo $row['SetorID'];?></td>
-        <td><?php echo $row['Nome'];?></td>
+        <td><?php echo $row['Nome'];?></td>''
         <td><?php echo $row['Andar'];?></td>
         <td><?php echo $row['Cor'];?></td>
-        <td><a href="./setor-salvar.php">atualizar</a></td>
-        <td><a href="./setor-excluir.php">excluir</a></td>
+        <td><a href="./setor-salvar.php?ID="<?php echo $row['SetorID'];?>>atualizar</a></td>
+        <td><a href="./setor-excluir.php?ID=<?php echo $row['SetorID'];?>">excluir</a></td>
     </tr>
 <?php
     }

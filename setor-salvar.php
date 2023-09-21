@@ -2,7 +2,35 @@
 // inclusao de arquivos base
 include_once './_conexao.php';
 include_once './_header.php';
+$id = isset($_GET['ID'])?$_GET['ID']:'';
+
+if(!empty($ID)){
+    $ID = $_GET['ID'];
+
+    $sql = "SELECT * FROM setor WHERE SetorID = ".$ID;
+    $resultado = mysqli_query($conexao,$sql);
+if (!empty($resultado)){
+    $dado = $mysqli_fetch_array($resultado);
+    $nome = $dado['Nome'];
+    $andar = $dado['Andar'];
+    $cor = $dado['Cor'];
+
+}else{
+    $ID = '';
+    $Nome = '';
+    $Andar = '';
+    $Cor = '';
+}
+
+}else{
+    $ID = '';
+    $Nome = '';
+    $Andar = '';
+    $Cor = '';
+}
 ?>
+
+
 <h1>Salvar Setor</h1>
 <form action="./setor-acao.php" method="post">
     <input type="text" value="">
